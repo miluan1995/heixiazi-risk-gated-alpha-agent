@@ -1,0 +1,168 @@
+{
+  "generated_at": "2026-06-03T23:20:00+08:00",
+  "portfolio_verdict": "TRADE_ALLOWED",
+  "candidates": [
+    {
+      "symbol": "BNB",
+      "signal": {
+        "symbol": "BNB",
+        "score": 0.7863,
+        "regime": "risk_on",
+        "thesis": "BNB trend=up, RSI=56, ATR=3.2%, sentiment=0.62, news_risk=0.18"
+      },
+      "backtest": {
+        "trades": 7,
+        "total_return_pct": 1.75,
+        "max_drawdown_pct": 0.05,
+        "ending_equity": 101.75
+      },
+      "risk_gate": {
+        "passed": true,
+        "verdict": "TRADE_ALLOWED",
+        "checks": [
+          {
+            "name": "liquidity",
+            "ok": true,
+            "detail": "liquidity_usd=520000000 >= 5000000"
+          },
+          {
+            "name": "volatility",
+            "ok": true,
+            "detail": "atr_pct=3.2 <= 12.0"
+          },
+          {
+            "name": "drawdown",
+            "ok": true,
+            "detail": "backtest_max_dd=0.05 <= 8.0"
+          },
+          {
+            "name": "signal_score",
+            "ok": true,
+            "detail": "score=0.7863 >= 0.62"
+          },
+          {
+            "name": "news_risk",
+            "ok": true,
+            "detail": "news_risk=0.18 <= 0.45"
+          }
+        ],
+        "position_usd": 10.0,
+        "reason": "all risk gates passed"
+      }
+    },
+    {
+      "symbol": "CAKE",
+      "signal": {
+        "symbol": "CAKE",
+        "score": 0.6798,
+        "regime": "selective",
+        "thesis": "CAKE trend=up, RSI=71, ATR=8.6%, sentiment=0.58, news_risk=0.25"
+      },
+      "backtest": {
+        "trades": 6,
+        "total_return_pct": 8.34,
+        "max_drawdown_pct": 0.0,
+        "ending_equity": 108.34
+      },
+      "risk_gate": {
+        "passed": true,
+        "verdict": "TRADE_ALLOWED",
+        "checks": [
+          {
+            "name": "liquidity",
+            "ok": true,
+            "detail": "liquidity_usd=42000000 >= 5000000"
+          },
+          {
+            "name": "volatility",
+            "ok": true,
+            "detail": "atr_pct=8.6 <= 12.0"
+          },
+          {
+            "name": "drawdown",
+            "ok": true,
+            "detail": "backtest_max_dd=0.0 <= 8.0"
+          },
+          {
+            "name": "signal_score",
+            "ok": true,
+            "detail": "score=0.6798 >= 0.62"
+          },
+          {
+            "name": "news_risk",
+            "ok": true,
+            "detail": "news_risk=0.25 <= 0.45"
+          }
+        ],
+        "position_usd": 10.0,
+        "reason": "all risk gates passed"
+      }
+    },
+    {
+      "symbol": "LOWLIQ",
+      "signal": {
+        "symbol": "LOWLIQ",
+        "score": 0.554,
+        "regime": "selective",
+        "thesis": "LOWLIQ trend=up, RSI=83, ATR=31.0%, sentiment=0.91, news_risk=0.72"
+      },
+      "backtest": {
+        "trades": 5,
+        "total_return_pct": 87.65,
+        "max_drawdown_pct": 0.0,
+        "ending_equity": 187.65
+      },
+      "risk_gate": {
+        "passed": false,
+        "verdict": "NO_TRADE",
+        "checks": [
+          {
+            "name": "liquidity",
+            "ok": false,
+            "detail": "liquidity_usd=18000 >= 5000000"
+          },
+          {
+            "name": "volatility",
+            "ok": false,
+            "detail": "atr_pct=31.0 <= 12.0"
+          },
+          {
+            "name": "drawdown",
+            "ok": true,
+            "detail": "backtest_max_dd=0.0 <= 8.0"
+          },
+          {
+            "name": "signal_score",
+            "ok": false,
+            "detail": "score=0.554 >= 0.62"
+          },
+          {
+            "name": "news_risk",
+            "ok": false,
+            "detail": "news_risk=0.72 <= 0.45"
+          }
+        ],
+        "position_usd": 0,
+        "reason": "one or more risk gates failed"
+      }
+    }
+  ],
+  "source_refs": [
+    {
+      "id": "cmc-agent-hub-fixture",
+      "type": "fixture",
+      "url_or_path": "examples/cmc_fixture.json",
+      "claim_supported": "Demo market data shaped like CMC Agent Hub output; replace with live CMC MCP/API before submission.",
+      "trust_level": "L0_fixture"
+    }
+  ],
+  "valid_until": "next CMC live refresh / next 4h candle close / major BNB Chain market event",
+  "falsifiers": [
+    "Live CMC data contradicts fixture momentum/sentiment.",
+    "Liquidity drops below policy threshold before execution.",
+    "Backtest max drawdown exceeds policy cap on refreshed data.",
+    "News/token risk rises above max_news_risk.",
+    "TWAK/BNB execution adapter cannot enforce user-defined limits."
+  ],
+  "next_research_action": "Replace fixture with live CMC MCP/API adapter and run the same report on BNB Chain liquid assets before any TWAK execution wrapper."
+}

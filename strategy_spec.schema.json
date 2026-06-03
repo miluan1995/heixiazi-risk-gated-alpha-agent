@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RiskGatedStrategySpec",
+  "type": "object",
+  "required": ["name", "universe", "signals", "risk_policy", "valid_until", "source_refs"],
+  "properties": {
+    "name": {"type": "string"},
+    "universe": {"type": "array", "items": {"type": "string"}},
+    "signals": {"type": "array", "items": {"type": "string"}},
+    "risk_policy": {
+      "type": "object",
+      "required": ["max_drawdown_pct", "min_liquidity_usd", "max_volatility_pct", "max_position_usd"],
+      "properties": {
+        "max_drawdown_pct": {"type": "number"},
+        "min_liquidity_usd": {"type": "number"},
+        "max_volatility_pct": {"type": "number"},
+        "max_position_usd": {"type": "number"}
+      }
+    },
+    "valid_until": {"type": "string"},
+    "source_refs": {"type": "array", "items": {"type": "object"}}
+  }
+}

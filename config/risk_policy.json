@@ -1,0 +1,10 @@
+{
+  "max_drawdown_pct": 8.0,
+  "min_liquidity_usd": 5000000,
+  "max_volatility_pct": 12.0,
+  "max_position_usd": 10.0,
+  "min_signal_score": 0.62,
+  "max_news_risk": 0.45,
+  "fee_bps": 25,
+  "valid_until": "next CMC live refresh / next 4h candle close / major BNB Chain market event"
+}

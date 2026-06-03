@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-03T23:20:00+08:00",
+  "source_refs": [
+    {
+      "id": "cmc-agent-hub-fixture",
+      "type": "fixture",
+      "url_or_path": "examples/cmc_fixture.json",
+      "claim_supported": "Demo market data shaped like CMC Agent Hub output; replace with live CMC MCP/API before submission.",
+      "trust_level": "L0_fixture"
+    }
+  ],
+  "tokens": [
+    {"symbol": "BNB", "price": 682.4, "volume_24h_usd": 1450000000, "liquidity_usd": 520000000, "rsi": 56, "macd": 1.8, "ema_fast": 681, "ema_slow": 657, "atr_pct": 3.2, "sentiment": 0.62, "news_risk": 0.18, "returns": [0.3, 0.4, -0.2, 0.8, 0.5, -0.1, 0.6, 0.2, -0.4, 0.7]},
+    {"symbol": "CAKE", "price": 3.18, "volume_24h_usd": 76000000, "liquidity_usd": 42000000, "rsi": 71, "macd": 0.9, "ema_fast": 3.23, "ema_slow": 2.92, "atr_pct": 8.6, "sentiment": 0.58, "news_risk": 0.25, "returns": [1.2, 1.5, -0.8, 2.1, -1.9, 0.7, 1.3, -2.4, 2.8, -1.1]},
+    {"symbol": "LOWLIQ", "price": 0.0042, "volume_24h_usd": 42000, "liquidity_usd": 18000, "rsi": 83, "macd": 2.4, "ema_fast": 0.0044, "ema_slow": 0.0031, "atr_pct": 31.0, "sentiment": 0.91, "news_risk": 0.72, "returns": [8, -12, 16, -22, 9, -18, 21, -30, 15, -11]}
+  ]
+}
