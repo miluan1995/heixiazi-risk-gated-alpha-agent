@@ -12,17 +12,10 @@ contract HeixiaziAgentProof {
         uint256 createdAt;
     }
 
-    address public immutable owner;
     uint256 public proofCount;
     mapping(uint256 => Proof) public proofs;
 
     event ProofRecorded(uint256 indexed id, bytes32 indexed reportHash, string uri, uint256 createdAt);
-
-    error NotOwner();
-
-    constructor() {
-        owner = msg.sender;
-    }
 
     function recordProof(bytes32 reportHash, string calldata uri) external returns (uint256 id) {
         // Open recording is intentional: judges/users can record their own reproductions.
